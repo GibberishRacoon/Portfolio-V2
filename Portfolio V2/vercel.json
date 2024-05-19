@@ -2,16 +2,16 @@
     "version": 2,
     "builds": [
       {
-        "src": "Portfolio V2/package.json", 
+        "src": "package.json",
         "use": "@vercel/static-build",
         "config": {
-          "distDir": "Portfolio V2/dist"  
+          "distDir": "dist"
         }
       }
     ],
     "routes": [
       { "handle": "filesystem" },
-      { "src": "/.*", "dest": "Portfolio V2/dist/index.html" }  
+      { "src": "/.*", "dest": "/dist/index.html" }
     ]
   }
   

@@ -1,0 +1,17 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "portfolio-v2/package.json",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "portfolio-v2/dist"
+        }
+      }
+    ],
+    "routes": [
+      { "handle": "filesystem" },
+      { "src": "/.*", "dest": "portfolio-v2/dist/index.html" }
+    ]
+  }
+  

@@ -1,0 +1,120 @@
+$color-background1: rgb(214, 187, 175);
+$color-background2: rgb(159, 59, 16);
+$color-navBar: rgb(2, 66, 68);
+$color-navBar-contrast: rgb(6, 35, 35);
+$color-nav-alternative: rgb(239, 209, 195);
+
+body {
+  background-color: $color-background1;
+}
+
+.navbar-custom {
+  background-color: $color-navBar; // Głęboka, ciemna fioletowa barwa jako tło
+  border-bottom: 3px solid $color-navBar-contrast; // Neonowy róż jako surowy akcent
+  position: relative;
+  z-index: 10;
+
+  .container,
+  .container-fluid,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+    margin-left: 20px; // Margines dla wyrównania treści navbara
+    padding-left: 0; // Usunięcie domyślnego paddingu
+    padding-right: 0; // Aby treść była bliżej krawędzi kontenera
+  }
+
+  .navbar-svg-layer {
+    position: absolute;
+    top: -20px;
+    right: -10%;
+    bottom: 0;
+    left: 0%;
+    background-image: url("../../assets/vector2.svg");
+    background-size: cover;
+    background-repeat: repeat;
+    pointer-events: none;
+    mask-image: linear-gradient(to right, transparent, black 9%);
+    mask-mode: alpha;
+    mask-size: 200% 100%;
+    z-index: -1;
+  }
+
+  .navbar-brand-custom {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff; // Jasny tekst dla kontrastu na ciemnym tle
+
+    img {
+      height: 47px;
+      margin-right: 10px;
+      filter: hue-rotate(180deg) brightness(150%);
+    }
+  }
+
+  .span-name {
+    font-size: 1.5rem;
+    color: #ffffff; // Biały tekst dla kontrastu
+    text-transform: uppercase;
+    font-weight: bold;
+
+    &:hover {
+      color: $color-nav-alternative;
+      text-decoration: none;
+    }
+  }
+
+  .custom-nav-link {
+    .nav-link {
+      font-size: 1.2rem;
+      color: #ffffff; // Biały tekst dla kontrastu
+      text-transform: uppercase;
+      font-weight: bold;
+
+      &:hover {
+        color: $color-nav-alternative;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .nav-dropdown {
+    .nav-dropdown-item {
+      color: #ffffff; // Biały tekst w rozwijanym menu dla kontrastu
+      &:hover {
+        background-color: #0fff0f; // Neonowy róż dla tła elementu rozwijanego przy najechaniu
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      margin-right: 1rem; //bez tego hamburger z wurzuci w bok
+    }
+    .span-name {
+      font-size: 1.2rem;
+      color: #ffffff; // Biały tekst dla kontrastu
+      text-transform: uppercase;
+      font-weight: bold;
+
+      &:hover {
+        color: $color-nav-alternative;
+        text-decoration: none;
+      }
+    }
+
+    .navbar-svg-layer {
+      display: none;
+    }
+    .navbar-toggle {
+      // Ustawienie koloru i innych właściwości przycisku hamburger, aby był widoczny
+      border-color: $color-nav-alternative;
+      // Dalsze style, jeśli są potrzebne
+    }
+  }
+}

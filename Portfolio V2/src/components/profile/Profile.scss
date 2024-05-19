@@ -1,0 +1,13 @@
+.profile-container {
+  display: flex; // Flexbox do centrowania zawartości
+  justify-content: center; // Wyśrodkowanie poziome
+  align-items: start; // Wyśrodkowanie pionowe, jeśli będziesz mieć więcej treści
+  padding: 20px; // Dodaj odstęp, aby nie kleił się do krawędzi
+
+  .profile-image {
+    max-width: 100%; // Maksymalna szerokość, aby obraz był responsywny
+    height: auto; // Wysokość auto, aby zachować proporcje
+    border-radius: 50%; // Okrągłe zdjęcie profilowe
+    max-width: 350px;
+  }
+}

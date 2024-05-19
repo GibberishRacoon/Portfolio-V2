@@ -4,11 +4,11 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  root: './portfolio-v2',
+  root: './Portfolio V2',  
   build: {
     outDir: 'dist',
     rollupOptions: {
-      input: './portfolio-v2/index.html'
+      input: './Portfolio V2/index.html'  
     }
   }
 });

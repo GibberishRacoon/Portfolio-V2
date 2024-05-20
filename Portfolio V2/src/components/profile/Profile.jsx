@@ -15,8 +15,8 @@ function Profile() {
         <div className="profile-description">
           <h4>My name is Filip</h4>
           <p>
-            Im frontend developer based in Poland currently looking
-            for a remote job or Internship. Most of the projects in my portfolio are
+            Im frontend developer based in Poland currently looking for a remote
+            job or Internship. Most of the projects in my portfolio are
             personal, but I also have experience with the following tech stack:
           </p>
         </div>

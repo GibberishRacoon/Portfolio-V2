@@ -1,0 +1,182 @@
+$color-background1: rgb(214, 187, 175);
+$color-background2: rgb(159, 59, 16);
+$color-navBar: rgb(2, 66, 68);
+$color-navBar-contrast: rgb(6, 35, 35);
+$color-nav-alternative: rgb(239, 209, 195);
+
+.portfolio-container {
+  margin-top: 20px;
+  background-color: $color-background1;
+  padding: 20px;
+  border-radius: 10px;
+
+  .nav-tabs {
+    margin-bottom: 20px;
+
+    .nav-link {
+      color: $color-navBar;
+      background-color: $color-nav-alternative;
+      border: none;
+      border-radius: 10px;
+      margin-right: 10px;
+      padding: 10px 20px;
+      cursor: pointer;
+
+      &.active,
+      &:hover {
+        color: $color-nav-alternative;
+        background-color: $color-navBar;
+      }
+    }
+  }
+
+  .portfolio-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+    background-color: $color-navBar;
+    padding: 20px;
+    border-radius: 10px;
+
+    @media (min-width: 992px) {
+      flex-direction: row;
+    }
+
+    .portfolio-image {
+      margin-bottom: 20px;
+      width: 100%; // Dodano szerokość 100% dla karuzeli
+
+      @media (min-width: 992px) {
+        margin-bottom: 0;
+        width: 50%; // Szerokość 50% na większych ekranach
+      }
+
+      .fixed-size {
+        height: 300px; // Ustalona wysokość
+        object-fit: cover; // Przycinanie obrazów, aby dopasować do kontenera
+        cursor: pointer; // Dodanie kursora wskazującego na możliwość kliknięcia
+        border-radius: 10px;
+      }
+    }
+
+    .portfolio-description {
+      color: $color-nav-alternative;
+      text-align: center;
+
+      @media (min-width: 992px) {
+        text-align: left;
+        margin-left: 20px;
+        width: 50%; // Szerokość 50% na większych ekranach
+      }
+
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+
+      p {
+        background-color: $color-navBar-contrast;
+        padding: 20px;
+        // margin-right: 20px;
+        border-radius: 10px;
+        font-size: 1rem;
+      }
+
+      // .btn-primary {
+      //   background-color: $color-navBar;
+      //   border: none;
+
+      //   &:hover {
+      //     background-color: darken($color-navBar, 10%);
+      //   }
+      // }
+
+      .btn-secondary {
+        background-color: $color-nav-alternative;
+        color: $color-navBar;
+        border: none;
+
+        @media (max-width: 768px) {
+          // display: block;
+          justify-content: center;
+          align-items: center;
+          // margin-right: 30px;
+        }
+
+        &:hover {
+          background-color: lighten($color-nav-alternative, 10%);
+        }
+      }
+
+      .tech-list {
+        margin-top: 20px;
+        list-style-type: none;
+        padding: 0;
+
+        @media (max-width: 768px) {
+          margin-right: 0;
+          display: flex;
+          flex-wrap: wrap;
+          align-content: center;
+          justify-content: space-evenly; // added to center li in mobile
+        }
+
+        li {
+          display: inline;
+
+          margin-right: 15px;
+          background-color: $color-navBar-contrast;
+          padding: 5px 10px;
+          border-radius: 5px;
+
+          @media (max-width: 768px) {
+            margin-right: 0; //to help center  tech list on mobile
+          }
+        }
+      }
+    }
+  }
+} //nie zmieniac nadpisuje caly kontener i button sie psuje
+// Stylizacja modala
+.modal-content {
+  background-color: transparent; // Usunięto tło modala
+  border: none;
+  border-radius: 0; // Usunięto zaokrąglone rogi modala
+}
+
+.modal-body {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .fullsize-image {
+    max-height: 80vh;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+  }
+}
+
+.close-button {
+  position: absolute;
+  top: 0; // Umieszczone przy samej górze
+  right: 0; // Umieszczone przy samej krawędzi
+  background-color: transparent; // Przezroczyste tło
+  border: none;
+  font-size: 2rem;
+  line-height: 1;
+  color: rgb(168, 168, 168);
+  background-color: rgb(0, 0, 0, 0.1);
+  padding: 0;
+  margin: 10px; // Dodano margines dla odstępu
+  cursor: pointer;
+  z-index: 1050;
+
+  &:hover {
+    color: rgba(214, 187, 175, 0.748);
+    background-color: rgb(0, 0, 0, 0.1);
+  }
+}

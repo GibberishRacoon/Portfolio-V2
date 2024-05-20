@@ -1,17 +1,67 @@
 // .profile-container {
-//   display: flex; // Flexbox do centrowania zawartości
-//   justify-content: center; // Wyśrodkowanie poziome
-//   align-items: start; // Wyśrodkowanie pionowe, jeśli będziesz mieć więcej treści
-//   padding: 20px; // Dodaj odstęp, aby nie kleił się do krawędzi
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   background-color: rgb(198, 169, 156); /* Grey background */
+//   padding: 20px;
+//   border-radius: 10px;
+//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+//   margin-top: 20px;
+// }
 
-//   .profile-image {
-//     max-width: 100%; // Maksymalna szerokość, aby obraz był responsywny
-//     height: auto; // Wysokość auto, aby zachować proporcje
-//     border-radius: 50%; // Okrągłe zdjęcie profilowe
-//     max-width: 350px;
+// .profile-image {
+//   flex-shrink: 0; /* Prevents the image from shrinking */
+//   width: 600px;
+//   height: auto; /* Maintain aspect ratio */
+//   margin-right: 20px;
+//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+// }
+
+// .profile-details {
+//   max-width: 500px; /* Limit the width of the content */
+//   width: 100%;
+// }
+
+// .profile-description {
+//   margin-bottom: 20px;
+
+//   h4 {
+//     margin-bottom: 10px;
+//     color: #333;
+//   }
+
+//   p {
+//     color: #666;
+//     line-height: 1.6;
 //   }
 // }
 
+// .tech-stack {
+//   ul {
+//     list-style: none;
+//     padding: 0;
+
+//     li {
+//       background: #f8f9fa;
+//       margin: 5px 0;
+//       padding: 10px;
+//       border-radius: 5px;
+//       transition: background 0.3s ease, transform 0.3s ease;
+
+//       &:hover {
+//         background: #e9ecef;
+//         transform: translateY(-2px);
+//         cursor: pointer;
+//       }
+//     }
+//   }
+// }
+
+$color-background1: rgb(214, 187, 175);
+$color-background2: rgb(159, 59, 16);
+$color-navBar: rgb(2, 66, 68);
+$color-navBar-contrast: rgb(6, 35, 35);
+$color-nav-alternative: rgb(239, 209, 195);
 
 .profile-container {
   display: flex;
@@ -22,19 +72,35 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 10px;
+    margin-top: 10px;
+  }
 }
 
 .profile-image {
   flex-shrink: 0; /* Prevents the image from shrinking */
-  width: 400px;
+  width: 600px;
   height: auto; /* Maintain aspect ratio */
   margin-right: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
 }
 
 .profile-details {
   max-width: 500px; /* Limit the width of the content */
   width: 100%;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
 }
 
 .profile-description {

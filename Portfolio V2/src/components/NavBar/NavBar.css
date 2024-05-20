@@ -1,0 +1,98 @@
+body {
+  background-color: rgb(214, 187, 175);
+}
+
+.navbar-custom {
+  background-color: rgb(2, 66, 68);
+  border-bottom: 3px solid rgb(6, 35, 35);
+  position: relative;
+  z-index: 10;
+}
+.navbar-custom .container,
+.navbar-custom .container-fluid,
+.navbar-custom .container-lg,
+.navbar-custom .container-md,
+.navbar-custom .container-sm,
+.navbar-custom .container-xl,
+.navbar-custom .container-xxl {
+  margin-left: 20px;
+  padding-left: 0;
+  padding-right: 0;
+}
+.navbar-custom .navbar-svg-layer {
+  position: absolute;
+  top: -20px;
+  right: -10%;
+  bottom: 0;
+  left: 0%;
+  background-image: url("../../assets/vector2.svg");
+  background-size: cover;
+  background-repeat: repeat;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 9%);
+          mask-image: linear-gradient(to right, transparent, black 9%);
+  mask-mode: alpha;
+  -webkit-mask-size: 200% 100%;
+          mask-size: 200% 100%;
+  z-index: -1;
+}
+.navbar-custom .navbar-brand-custom {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.navbar-custom .navbar-brand-custom img {
+  height: 47px;
+  margin-right: 10px;
+  filter: hue-rotate(180deg) brightness(150%);
+}
+.navbar-custom .span-name {
+  font-size: 1.5rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.navbar-custom .span-name:hover {
+  color: rgb(239, 209, 195);
+  text-decoration: none;
+}
+.navbar-custom .custom-nav-link .nav-link {
+  font-size: 1.2rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.navbar-custom .custom-nav-link .nav-link:hover {
+  color: rgb(239, 209, 195);
+  text-decoration: none;
+}
+.navbar-custom .nav-dropdown .nav-dropdown-item {
+  color: #ffffff;
+}
+.navbar-custom .nav-dropdown .nav-dropdown-item:hover {
+  background-color: #0fff0f;
+}
+@media (max-width: 768px) {
+  .navbar-custom .container {
+    margin-right: 1rem;
+  }
+  .navbar-custom .span-name {
+    font-size: 1.2rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  .navbar-custom .span-name:hover {
+    color: rgb(239, 209, 195);
+    text-decoration: none;
+  }
+  .navbar-custom .navbar-svg-layer {
+    display: none;
+  }
+  .navbar-custom .navbar-toggle {
+    border-color: rgb(239, 209, 195);
+  }
+}/*# sourceMappingURL=NavBar.css.map */

@@ -1,0 +1,12 @@
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding: 20px;
+}
+.profile-container .profile-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+  max-width: 350px;
+}/*# sourceMappingURL=Profile.css.map */

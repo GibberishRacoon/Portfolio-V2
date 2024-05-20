@@ -16,7 +16,7 @@ function NavBarU() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto custom-nav-link">
             <NavLink href="#about">ABOUT</NavLink>
-            <NavLink href="#link">PORTFOLIO</NavLink>
+            <NavLink href="#portfolio">PORTFOLIO</NavLink>
             <NavDropdown title="CONTACT" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Akcja</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Inna akcja</NavDropdown.Item>

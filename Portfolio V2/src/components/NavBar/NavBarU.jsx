@@ -15,7 +15,7 @@ function NavBarU() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto custom-nav-link">
-            <NavLink href="#home">ABOUT</NavLink>
+            <NavLink href="#about">ABOUT</NavLink>
             <NavLink href="#link">PORTFOLIO</NavLink>
             <NavDropdown title="CONTACT" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Akcja</NavDropdown.Item>

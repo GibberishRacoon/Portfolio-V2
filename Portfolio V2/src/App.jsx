@@ -5,6 +5,7 @@ import NavBarU from "./components/NavBar/NavBarU";
 import Profile from "./components/profile/Profile";
 import Portfolio from "./components/Portfolio/Portfolio";
 import { initGA, logPageView } from "./analytics";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   useEffect(() => {
@@ -24,6 +25,7 @@ function App() {
       <NavBarU />
       <Profile id="about" />
       <Portfolio id="portfolio" />
+      <Analytics />
     </>
   );
 }

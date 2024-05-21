@@ -20,7 +20,7 @@ const projects = [
   {
     title: "Escape Room Manager",
     description:
-      "The app allows users to subscribe to their favorite Twitch streamers, and watch streams that they have missed. Users can add their own channels and/or remove them. Mark videos as watched and bookmarked.",
+      "The Escape Room Manager is a comprehensive web application built with React, designed to streamline the management of escape rooms. It features separate interfaces for administrators and users, ensuring a smooth and efficient user experience.",
     images: [project1_1, project1_2, project1_3],
     tech: ["React", "NodeJS", "MongoDB"],
     codeLink: "https://github.com/GibberishRacoon/Escape-Room-manager.git",

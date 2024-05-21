@@ -6,6 +6,7 @@ import Profile from "./components/profile/Profile";
 import Portfolio from "./components/Portfolio/Portfolio";
 import { initGA, logPageView } from "./analytics";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function App() {
   useEffect(() => {
@@ -26,6 +27,7 @@ function App() {
       <Profile id="about" />
       <Portfolio id="portfolio" />
       <Analytics />
+      <SpeedInsights />
     </>
   );
 }

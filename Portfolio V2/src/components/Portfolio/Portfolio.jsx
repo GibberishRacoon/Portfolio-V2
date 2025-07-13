@@ -20,15 +20,15 @@ import mp_6 from "../../assets/Mp/Mp_6.png";
 import mp_7 from "../../assets/Mp/Mp_7.png";
 import mp_8 from "../../assets/Mp/Mp_8.png";
 
-import Iot_1 from "../../assets/IoT/Iot_1.png";
-import Iot_2 from "../../assets/IoT/Iot_2.png";
-import Iot_3 from "../../assets/IoT/Iot_3.png";
-import Iot_4 from "../../assets/IoT/Iot_4.png";
-import Iot_5 from "../../assets/IoT/Iot_5.png";
-import Iot_6 from "../../assets/IoT/Iot_6.png";
-import Iot_7 from "../../assets/IoT/Iot_7.png";
-import Iot_8 from "../../assets/IoT/Iot_8.png";
-import Iot_9 from "../../assets/IoT/Iot_9.png";
+import Iot_1 from "../../assets/IoT/IoT_1.png";
+import Iot_2 from "../../assets/IoT/IoT_2.png";
+import Iot_3 from "../../assets/IoT/IoT_3.png";
+import Iot_4 from "../../assets/IoT/IoT_4.png";
+import Iot_5 from "../../assets/IoT/IoT_5.png";
+import Iot_6 from "../../assets/IoT/IoT_6.png";
+import Iot_7 from "../../assets/IoT/IoT_7.png";
+import Iot_8 from "../../assets/IoT/IoT_8.png";
+import Iot_9 from "../../assets/IoT/IoT_9.png";
 
 import placeholderImg from "../../assets/Proj1_1.png"; // Temporary placeholder
 

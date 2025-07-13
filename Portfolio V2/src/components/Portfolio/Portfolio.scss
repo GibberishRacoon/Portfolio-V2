@@ -4,179 +4,937 @@ $color-navBar: rgb(2, 66, 68);
 $color-navBar-contrast: rgb(6, 35, 35);
 $color-nav-alternative: rgb(239, 209, 195);
 
-.portfolio-container {
-  margin-top: 20px;
-  background-color: $color-background1;
-  padding: 20px;
-  border-radius: 10px;
+// Enhanced gradients
+$gradient-primary: linear-gradient(
+  135deg,
+  $color-navBar,
+  lighten($color-navBar, 15%)
+);
+$gradient-secondary: linear-gradient(
+  135deg,
+  $color-background2,
+  lighten($color-background2, 15%)
+);
+$gradient-glass: linear-gradient(
+  135deg,
+  rgba(255, 255, 255, 0.1),
+  rgba(255, 255, 255, 0.05)
+);
 
-  .nav-tabs {
+.enhanced-portfolio-container {
+  background: linear-gradient(
+    135deg,
+    $color-background1 0%,
+    lighten($color-background1, 8%) 100%
+  );
+  border-radius: 25px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+  padding: 50px 40px;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at 80% 20%,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 50%
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  @media (max-width: 768px) {
+    padding: 30px 20px;
+    margin-top: 20px;
+    border-radius: 20px;
+  }
+}
+
+// Portfolio Header
+.portfolio-header {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 2;
+
+  .portfolio-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: $color-navBar;
     margin-bottom: 20px;
+    line-height: 1.1;
 
-    .nav-link {
-      color: $color-navBar;
-      background-color: $color-nav-alternative;
-      border: none;
-      border-radius: 10px;
-      margin-right: 10px;
-      padding: 10px 20px;
-      cursor: pointer;
+    .title-highlight {
+      background: $gradient-secondary;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
 
-      &.active,
-      &:hover {
-        color: $color-nav-alternative;
-        background-color: $color-navBar;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 8px;
+        left: 0;
+        width: 100%;
+        height: 6px;
+        background: $gradient-secondary;
+        border-radius: 3px;
+        opacity: 0.3;
       }
+    }
+
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
     }
   }
 
-  .portfolio-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 40px;
-    background-color: $color-navBar;
-    padding: 20px;
-    border-radius: 10px;
+  .portfolio-subtitle {
+    font-size: 1.3rem;
+    color: $color-navBar-contrast;
+    margin-bottom: 30px;
+    line-height: 1.6;
 
-    @media (min-width: 992px) {
-      flex-direction: row;
+    @media (max-width: 768px) {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+// Filter Buttons
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+
+  .filter-btn {
+    padding: 12px 25px;
+    border: 2px solid $color-navBar;
+    background: transparent;
+    color: $color-navBar;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: $color-navBar;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.3s ease;
+      z-index: -1;
     }
 
-    .portfolio-image {
-      margin-bottom: 20px;
-      width: 100%; // Dodano szerokość 100% dla karuzeli
-
-      @media (min-width: 992px) {
-        margin-bottom: 0;
-        width: 50%; // Szerokość 50% na większych ekranach
-      }
-
-      .fixed-size {
-        height: 300px; // Ustalona wysokość
-        object-fit: cover; // Przycinanie obrazów, aby dopasować do kontenera
-        cursor: pointer; // Dodanie kursora wskazującego na możliwość kliknięcia
-        border-radius: 10px;
-      }
-    }
-
-    .portfolio-description {
+    &:hover {
       color: $color-nav-alternative;
-      text-align: center;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(2, 66, 68, 0.3);
 
-      @media (min-width: 992px) {
-        text-align: left;
-        margin-left: 20px;
-        width: 50%; // Szerokość 50% na większych ekranach
+      &::before {
+        width: 300px;
+        height: 300px;
       }
+    }
 
-      h2 {
-        font-size: 2rem;
-        margin-bottom: 20px;
+    &.active {
+      background: $gradient-primary;
+      color: $color-nav-alternative;
+      border-color: $color-navBar;
+      box-shadow: 0 8px 25px rgba(2, 66, 68, 0.3);
+      transform: translateY(-2px);
+
+      &::before {
+        width: 300px;
+        height: 300px;
+      }
+    }
+  }
+}
+
+// Projects Grid
+.projects-grid {
+  position: relative;
+  z-index: 2;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  height: 100%;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 35px 70px rgba(0, 0, 0, 0.15);
+  }
+}
+
+// Project Image Container
+.project-image-container {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+
+  .project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(2, 66, 68, 0.9),
+      rgba(6, 35, 35, 0.8)
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(5px);
+
+    .overlay-content {
+      text-align: center;
+      color: white;
+      transform: translateY(30px);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      padding: 20px;
+
+      h4 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: $color-nav-alternative;
       }
 
       p {
-        background-color: $color-navBar-contrast;
-        padding: 20px;
-        // margin-right: 20px;
-        border-radius: 10px;
         font-size: 1rem;
+        margin-bottom: 25px;
+        opacity: 0.9;
+        line-height: 1.5;
       }
 
-      // .btn-primary {
-      //   background-color: $color-navBar;
-      //   border: none;
-
-      //   &:hover {
-      //     background-color: darken($color-navBar, 10%);
-      //   }
-      // }
-
-      .btn-secondary {
-        background-color: $color-nav-alternative;
-        color: $color-navBar;
+      .view-details-btn {
+        background: $gradient-secondary;
         border: none;
+        padding: 15px 30px;
+        border-radius: 25px;
+        font-weight: 600;
+        color: white;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
 
-        @media (max-width: 768px) {
-          // display: block;
-          justify-content: center;
-          align-items: center;
-          // margin-right: 30px;
+        .arrow {
+          transition: transform 0.3s ease;
         }
 
         &:hover {
-          background-color: lighten($color-nav-alternative, 10%);
-        }
-      }
+          transform: scale(1.05);
+          box-shadow: 0 10px 25px rgba(159, 59, 16, 0.4);
 
-      .tech-list {
-        margin-top: 20px;
-        list-style-type: none;
-        padding: 0;
-
-        @media (max-width: 768px) {
-          margin-right: 0;
-          display: flex;
-          flex-wrap: wrap;
-          align-content: center;
-          justify-content: space-evenly; // added to center li in mobile
-        }
-
-        li {
-          display: inline;
-
-          margin-right: 15px;
-          background-color: $color-navBar-contrast;
-          padding: 5px 10px;
-          border-radius: 5px;
-
-          @media (max-width: 768px) {
-            margin-right: 0; //to help center  tech list on mobile
+          .arrow {
+            transform: translateX(5px);
           }
         }
       }
     }
   }
-} //nie zmieniac nadpisuje caly kontener i button sie psuje
-// Stylizacja modala
-.modal-content {
-  background-color: transparent; // Usunięto tło modala
-  border: none;
-  border-radius: 0; // Usunięto zaokrąglone rogi modala
-}
 
-.modal-body {
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  &:hover {
+    .project-image {
+      transform: scale(1.15);
+    }
 
-  .fullsize-image {
-    max-height: 80vh;
-    max-width: 100%;
-    width: auto;
-    height: auto;
-    border-radius: 10px;
+    .project-overlay {
+      opacity: 1;
+
+      .overlay-content {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  .project-category-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: $gradient-primary;
+    color: $color-nav-alternative;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 }
 
-.close-button {
-  position: absolute;
-  top: 0; // Umieszczone przy samej górze
-  right: 0; // Umieszczone przy samej krawędzi
-  background-color: transparent; // Przezroczyste tło
-  border: none;
-  font-size: 2rem;
-  line-height: 1;
-  color: rgb(168, 168, 168);
-  background-color: rgb(0, 0, 0, 0.1);
-  padding: 0;
-  margin: 10px; // Dodano margines dla odstępu
-  cursor: pointer;
-  z-index: 1050;
+// Project Info
+.project-info {
+  padding: 25px;
 
-  &:hover {
-    color: rgba(214, 187, 175, 0.748);
-    background-color: rgb(0, 0, 0, 0.1);
+  .project-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+
+    .project-status {
+      background: linear-gradient(45deg, #22c55e, #16a34a);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .project-duration {
+      color: $color-navBar-contrast;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+  }
+
+  .project-title {
+    color: $color-navBar;
+    font-weight: 700;
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+  }
+
+  .project-short-desc {
+    color: $color-navBar-contrast;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .tech-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+
+    .tech-badge {
+      padding: 6px 12px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: white;
+
+      &.more {
+        background: $color-background2;
+        color: white;
+      }
+    }
+  }
+
+  .project-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .btn {
+      font-weight: 600;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+// Modal Styles
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  &.ReactModal__Overlay--after-open {
+    opacity: 1;
+  }
+
+  &.ReactModal__Overlay--before-close {
+    opacity: 0;
+  }
+}
+
+.project-detail-modal {
+  background: white;
+  border-radius: 25px;
+  max-width: 1200px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  outline: none;
+  box-shadow: 0 50px 100px rgba(0, 0, 0, 0.3);
+  transform: scale(0.8);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  &.ReactModal__Content--after-open {
+    transform: scale(1);
+  }
+
+  &.ReactModal__Content--before-close {
+    transform: scale(0.8);
+  }
+
+  @media (max-width: 768px) {
+    margin: 10px;
+    max-height: 95vh;
+    border-radius: 20px;
+    max-width: 95vw;
+  }
+
+  .modal-content {
+    padding: 40px;
+
+    @media (max-width: 768px) {
+      padding: 25px;
+    }
+  }
+
+  .modal-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    background: rgba(0, 0, 0, 0.1);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 2rem;
+    color: $color-navBar-contrast;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.2);
+      color: $color-navBar;
+      transform: scale(1.1);
+    }
+
+    span {
+      line-height: 1;
+      font-family: Arial, sans-serif;
+    }
+  }
+}
+
+// Modal Header
+.modal-header {
+  margin-bottom: 30px;
+
+  .modal-title-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 15px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: $color-navBar;
+      margin: 0;
+
+      @media (max-width: 768px) {
+        font-size: 2rem;
+      }
+    }
+
+    .category-badge {
+      background: $gradient-primary;
+      color: $color-nav-alternative;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  }
+
+  .project-meta-info {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    @media (max-width: 768px) {
+      gap: 10px;
+    }
+
+    .meta-item {
+      background: rgba(2, 66, 68, 0.1);
+      color: $color-navBar;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+  }
+}
+
+// Modal Gallery
+.modal-gallery {
+  @media (max-width: 992px) {
+    margin-bottom: 30px;
+  }
+
+  .main-image-container {
+    position: relative;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+
+    .main-modal-image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.02);
+      }
+
+      @media (max-width: 768px) {
+        height: 250px;
+      }
+    }
+
+    .gallery-controls {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+
+      .gallery-btn {
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.9);
+          transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+          width: 40px;
+          height: 40px;
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    &:hover .gallery-controls {
+      opacity: 1;
+    }
+
+    .image-counter {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
+    }
+  }
+
+  .thumbnail-strip {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 15px 0;
+
+    .thumbnail {
+      width: 100px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 12px;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+      border: 3px solid transparent;
+
+      &:hover {
+        opacity: 0.8;
+        transform: scale(1.05);
+      }
+
+      &.active {
+        opacity: 1;
+        border-color: $color-background2;
+        transform: scale(1.05);
+      }
+
+      @media (max-width: 768px) {
+        width: 80px;
+        height: 55px;
+      }
+    }
+  }
+}
+
+// Modal Details
+.modal-details {
+  padding-left: 30px;
+
+  @media (max-width: 992px) {
+    padding-left: 0;
+  }
+
+  .detail-section {
+    margin-bottom: 30px;
+
+    h4 {
+      color: $color-navBar;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    p {
+      color: $color-navBar-contrast;
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    .tech-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+
+      .tech-badge-detailed {
+        padding: 10px 18px;
+        border-radius: 25px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: white;
+        transition: transform 0.2s ease;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+
+    .features-list {
+      .feature-item {
+        background: rgba(2, 66, 68, 0.05);
+        padding: 12px 18px;
+        border-radius: 12px;
+        margin-bottom: 10px;
+        color: $color-navBar-contrast;
+        font-weight: 500;
+        border-left: 4px solid $color-background2;
+      }
+    }
+
+    .challenges-list {
+      list-style: none;
+      padding: 0;
+
+      li {
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 12px;
+        color: $color-navBar-contrast;
+        line-height: 1.6;
+
+        &::before {
+          content: "🎯";
+          position: absolute;
+          left: 0;
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+
+  .modal-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+
+    .action-btn {
+      padding: 15px 30px;
+      border-radius: 25px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 2px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+
+      &.primary {
+        background: $gradient-secondary;
+        color: white;
+        border-color: $color-background2;
+
+        &:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 15px 35px rgba(159, 59, 16, 0.4);
+          color: white;
+        }
+      }
+
+      &.secondary {
+        background: $gradient-primary;
+        color: $color-nav-alternative;
+        border-color: $color-navBar;
+
+        &:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 15px 35px rgba(2, 66, 68, 0.4);
+          color: $color-nav-alternative;
+        }
+      }
+    }
+  }
+}
+
+// Fullscreen Image Modal
+.fullscreen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+
+  &.ReactModal__Overlay--after-open {
+    opacity: 1;
+  }
+
+  &.ReactModal__Overlay--before-close {
+    opacity: 0;
+  }
+}
+
+.fullscreen-image-modal {
+  outline: none;
+  max-width: 95vw;
+  max-height: 95vh;
+  transform: scale(0.9);
+  transition: transform 0.2s ease;
+
+  &.ReactModal__Content--after-open {
+    transform: scale(1);
+  }
+
+  &.ReactModal__Content--before-close {
+    transform: scale(0.9);
+  }
+
+  .fullscreen-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .fullscreen-close {
+      position: absolute;
+      top: -80px;
+      right: 0;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(1.1);
+      }
+
+      @media (max-width: 768px) {
+        top: -60px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+      }
+    }
+
+    .fullscreen-image {
+      max-width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 15px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .fullscreen-controls {
+      position: absolute;
+      top: 50%;
+      left: -80px;
+      right: -80px;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: space-between;
+      pointer-events: none;
+
+      .fullscreen-btn {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: none;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        font-size: 1.8rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+        pointer-events: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.3);
+          transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+          width: 50px;
+          height: 50px;
+          font-size: 1.4rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        left: -60px;
+        right: -60px;
+      }
+    }
+
+    .fullscreen-info {
+      position: absolute;
+      bottom: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: white;
+
+      h4 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+
+      span {
+        font-size: 1rem;
+        opacity: 0.8;
+      }
+
+      @media (max-width: 768px) {
+        bottom: -60px;
+
+        h4 {
+          font-size: 1.2rem;
+        }
+
+        span {
+          font-size: 0.9rem;
+        }
+      }
+    }
   }
 }

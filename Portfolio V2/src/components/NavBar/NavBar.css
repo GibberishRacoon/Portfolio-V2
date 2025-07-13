@@ -20,6 +20,7 @@ body {
   padding-right: 0;
 }
 .navbar-custom .navbar-svg-layer {
+  width: 100%;
   position: absolute;
   top: -20px;
   right: -10%;

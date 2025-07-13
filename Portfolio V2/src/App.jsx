@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import NavBarU from "./components/NavBar/NavBarU";
+import NavBar from "./components/NavBar/NavBar";
 import Profile from "./components/profile/Profile";
 import Portfolio from "./components/Portfolio/Portfolio";
 import { initGA, logPageView } from "./analytics";
@@ -23,7 +23,7 @@ function App() {
 
   return (
     <>
-      <NavBarU />
+      <NavBar />
       <Profile id="about" />
       <Portfolio id="portfolio" />
       <Analytics />

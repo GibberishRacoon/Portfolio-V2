@@ -27,6 +27,7 @@ body {
   }
 
   .navbar-svg-layer {
+    width: 100%; //without this the mask will force width of the element
     position: absolute;
     top: -20px;
     right: -10%;

@@ -1,0 +1,89 @@
+{
+  "name": "Filip Augustynek - Frontend Developer Portfolio",
+  "short_name": "Filip Portfolio",
+  "description": "Professional portfolio showcasing Filip Augustynek's frontend development skills, projects, and experience in React, JavaScript, and modern web technologies.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#D6BBAF",
+  "theme_color": "#024244",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["business", "developer", "portfolio"],
+  "icons": [
+    {
+      "src": "/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "View Portfolio",
+      "short_name": "Portfolio",
+      "description": "Browse my development projects",
+      "url": "/#portfolio",
+      "icons": [
+        {
+          "src": "/icons/portfolio-shortcut.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "About Me",
+      "short_name": "About",
+      "description": "Learn more about my background",
+      "url": "/#about",
+      "icons": [
+        {
+          "src": "/icons/about-shortcut.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}

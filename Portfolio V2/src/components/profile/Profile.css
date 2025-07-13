@@ -1,12 +1,548 @@
-.profile-container {
+.enhanced-profile-container {
+  background: linear-gradient(135deg, rgb(214, 187, 175) 0%, #e4d2ca 100%);
+  border-radius: 25px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+.enhanced-profile-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+@media (max-width: 768px) {
+  .enhanced-profile-container {
+    margin-top: 20px;
+    border-radius: 20px;
+  }
+}
+
+.profile-hero {
+  padding: 50px 40px;
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 768px) {
+  .profile-hero {
+    padding: 30px 20px;
+    text-align: center;
+  }
+}
+
+.profile-image-section {
   display: flex;
   justify-content: center;
-  align-items: start;
+  margin-bottom: 30px;
+}
+@media (min-width: 992px) {
+  .profile-image-section {
+    margin-bottom: 0;
+  }
+}
+
+.profile-image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.profile-image-wrapper .profile-image {
+  width: 280px;
+  height: 350px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 25px;
+  border: 4px solid rgb(2, 66, 68);
+  box-shadow: 0 25px 50px rgba(2, 66, 68, 0.3);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.profile-image-wrapper .profile-image:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 35px 70px rgba(2, 66, 68, 0.4);
+}
+@media (max-width: 768px) {
+  .profile-image-wrapper .profile-image {
+    width: 240px;
+    height: 300px;
+  }
+}
+.profile-image-wrapper .profile-status {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, rgb(2, 66, 68), #048a8e);
+  color: rgb(239, 209, 195);
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 10px 25px rgba(2, 66, 68, 0.3);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.profile-image-wrapper .profile-status .status-dot {
+  width: 10px;
+  height: 10px;
+  background: #22c55e;
+  border-radius: 50%;
+  animation: pulse-dot 2s infinite;
+}
+
+.profile-floating-card {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background: rgba(255, 255, 255, 0.95);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.profile-floating-card .floating-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.profile-floating-card .floating-info span {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgb(6, 35, 35);
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+}
+.profile-content {
+  padding-left: 20px;
+}
+@media (max-width: 992px) {
+  .profile-content {
+    padding-left: 0;
+  }
+}
+
+.profile-intro {
+  margin-bottom: 30px;
+}
+.profile-intro .profile-name {
+  font-size: 3rem;
+  font-weight: 800;
+  color: rgb(2, 66, 68);
+  margin-bottom: 10px;
+  line-height: 1.1;
+}
+.profile-intro .profile-name .name-highlight {
+  background: linear-gradient(135deg, rgb(159, 59, 16), #e55517);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+.profile-intro .profile-name .name-highlight::after {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(135deg, rgb(159, 59, 16), #e55517);
+  border-radius: 2px;
+  opacity: 0.3;
+}
+.profile-intro .profile-name .wave {
+  display: inline-block;
+  animation: wave 2s ease-in-out infinite;
+  transform-origin: 70% 70%;
+}
+@media (max-width: 768px) {
+  .profile-intro .profile-name {
+    font-size: 2.2rem;
+  }
+}
+.profile-intro .profile-title {
+  font-size: 1.8rem;
+  color: rgb(6, 35, 35);
+  font-weight: 600;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.profile-intro .profile-title .typing-text {
+  position: relative;
+}
+.profile-intro .profile-title .cursor {
+  font-weight: 300;
+  animation: blink 1s infinite;
+  color: rgb(159, 59, 16);
+}
+@media (max-width: 768px) {
+  .profile-intro .profile-title {
+    font-size: 1.5rem;
+    justify-content: center;
+  }
+}
+.profile-intro .profile-subtitle {
+  font-size: 1.2rem;
+  color: #05a2a7;
+  line-height: 1.6;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .profile-intro .profile-subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  10%, 30% {
+    transform: rotate(14deg);
+  }
+  20% {
+    transform: rotate(-8deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+.profile-stats {
+  margin-bottom: 30px;
+}
+.profile-stats .stat-item {
+  text-align: center;
+  padding: 20px 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.profile-stats .stat-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+.profile-stats .stat-item .stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: rgb(159, 59, 16);
+  margin-bottom: 8px;
+  line-height: 1;
+}
+.profile-stats .stat-item .stat-label {
+  font-size: 0.9rem;
+  color: rgb(6, 35, 35);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.profile-description {
+  margin-bottom: 30px;
+}
+.profile-description p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgb(6, 35, 35);
+  margin-bottom: 15px;
+}
+.profile-description p strong {
+  color: rgb(2, 66, 68);
+  font-weight: 700;
+}
+
+.contact-actions {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+@media (max-width: 768px) {
+  .contact-actions {
+    justify-content: center;
+  }
+}
+.contact-actions .contact-btn {
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+.contact-actions .contact-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+}
+.contact-actions .contact-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+.contact-actions .contact-btn.primary {
+  background: linear-gradient(135deg, rgb(159, 59, 16), #e55517);
+  color: white;
+  border-color: rgb(159, 59, 16);
+}
+.contact-actions .contact-btn.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(159, 59, 16, 0.4);
+  color: white;
+}
+.contact-actions .contact-btn.secondary {
+  background: linear-gradient(135deg, rgb(2, 66, 68), #048a8e);
+  color: rgb(239, 209, 195);
+  border-color: rgb(2, 66, 68);
+}
+.contact-actions .contact-btn.secondary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(2, 66, 68, 0.4);
+  color: rgb(239, 209, 195);
+}
+.contact-actions .contact-btn.outline {
+  background: transparent;
+  color: rgb(2, 66, 68);
+  border-color: rgb(2, 66, 68);
+}
+.contact-actions .contact-btn.outline:hover {
+  background: rgb(2, 66, 68);
+  color: rgb(239, 209, 195);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(2, 66, 68, 0.3);
+}
+
+.skills-section {
+  padding: 50px 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 768px) {
+  .skills-section {
+    padding: 30px 20px;
+  }
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.section-header h3 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: rgb(2, 66, 68);
+  margin-bottom: 15px;
+  position: relative;
+}
+.section-header h3::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, rgb(159, 59, 16), #e55517);
+  border-radius: 2px;
+}
+.section-header p {
+  font-size: 1.1rem;
+  color: rgb(6, 35, 35);
+  margin: 0;
+}
+
+.skill-category-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  height: 100%;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+.skill-category-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+.skill-category-card .card-header {
+  background: linear-gradient(135deg, rgb(2, 66, 68), #048a8e);
+  border-bottom: none;
+  border-radius: 20px 20px 0 0;
   padding: 20px;
 }
-.profile-container .profile-image {
-  max-width: 100%;
-  height: auto;
-  border-radius: 50%;
-  max-width: 350px;
+.skill-category-card .card-header h5 {
+  color: rgb(239, 209, 195);
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.skill-category-card .card-body {
+  padding: 25px;
+}
+
+.skill-item {
+  margin-bottom: 20px;
+}
+.skill-item .skill-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.skill-item .skill-info .skill-name {
+  font-weight: 600;
+  color: rgb(2, 66, 68);
+  font-size: 0.95rem;
+}
+.skill-item .skill-info .skill-years {
+  font-size: 0.8rem;
+  color: rgb(159, 59, 16);
+  font-weight: 600;
+  background: rgba(159, 59, 16, 0.1);
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+.skill-item .skill-bar {
+  height: 8px;
+  background: rgba(2, 66, 68, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+.skill-item .skill-bar .skill-progress {
+  height: 100%;
+  background: linear-gradient(135deg, rgb(159, 59, 16), #e55517);
+  border-radius: 10px;
+  transition: width 1s ease-out;
+  position: relative;
+}
+.skill-item .skill-bar .skill-progress::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+.skill-item .skill-level {
+  font-size: 0.8rem;
+  color: rgb(6, 35, 35);
+  font-weight: 600;
+  margin-top: 5px;
+  text-align: right;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+.achievements-section {
+  padding: 50px 40px;
+  background: rgba(2, 66, 68, 0.03);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 768px) {
+  .achievements-section {
+    padding: 30px 20px;
+  }
+}
+
+.achievement-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  height: 100%;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.achievement-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+.achievement-card .card-body {
+  padding: 30px 20px;
+}
+.achievement-card .card-body .achievement-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  display: block;
+}
+.achievement-card .card-body h5 {
+  color: rgb(2, 66, 68);
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+.achievement-card .card-body p {
+  color: rgb(6, 35, 35);
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
 }/*# sourceMappingURL=Profile.css.map */
